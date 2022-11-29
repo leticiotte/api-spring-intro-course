@@ -27,4 +27,10 @@ public class UserController {
         List<User> users = service.findAll();
         return ResponseEntity.ok().body(users);
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<User> update(@PathVariable Integer id, @RequestBody User userUpdates){
+        User userUpdated = service.update(id, userUpdates);
+        return ResponseEntity.ok().body(userUpdated);
+    }
 }

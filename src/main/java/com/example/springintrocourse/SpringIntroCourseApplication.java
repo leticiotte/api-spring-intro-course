@@ -26,4 +26,5 @@ public class SpringIntroCourseApplication implements CommandLineRunner {
 
 		userRepository.saveAll(Arrays.asList(user1, user2));
 	}
+
 }
