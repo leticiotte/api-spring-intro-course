@@ -29,4 +29,9 @@ public class UserService {
         user.setPassword(userUpdates.getPassword());
         return repository.save(user);
     }
+
+    public User create(User user) {
+        user.setId(null);
+        return repository.save(user);
+    }
 }

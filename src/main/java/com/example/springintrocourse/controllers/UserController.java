@@ -33,4 +33,11 @@ public class UserController {
         User userUpdated = service.update(id, userUpdates);
         return ResponseEntity.ok().body(userUpdated);
     }
+
+    @PostMapping
+    public ResponseEntity<User> create(@RequestBody User newUser){
+        User user = service.create(newUser);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
+        return ResponseEntity.created(uri).build();
+    }
 }
